@@ -1,0 +1,24 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{movie.poster.url}}" width="200" height="200">
+        </div>
+        <div class="col-md-6">
+           <h4 style="color:violet;">Title:</h4> <h2 class="my_prod_title"> {{movie.title}}</h2>
+           <h4 style="color:violet;">Description:</h4><p class="text-justify my_prod_text">{{movie.description}}</p>
+            <h4 style="color:violet;">Release Date:</h4><p class="text-justify my_prod_text">{{movie.release_date }}</p>
+            <h4 style="color:violet;">Actors:</h4>   <h6 class="text-justify my_prod_text">{{movie.actors}}</h6>
+            <h4 style="color:violet;">Language:</h4><h6 class="text-justify my_prod_text">{{movie.category}}</h6>
+            <a href="{% url 'watch_trailer' movie.id %}">Watch Trailer</a><br>
+                   <a class="btn btn-secondary" href="{% url 'edit' movie.id %}">Edit</a><br>
+                   <a class="btn btn-danger" href="{% url 'delete' movie.id %}">Delete</a>
+
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
